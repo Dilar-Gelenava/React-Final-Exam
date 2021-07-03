@@ -6,7 +6,7 @@ function Navbar() {
       <ul className="navbar-nav">
         <li className="nav-item navbar-brand ml-2">
           <Link className="nav-link" to={'/'}>
-            Home
+            MindBook
           </Link>
         </li>
         <li className="nav-item navbar-brand ml-2">

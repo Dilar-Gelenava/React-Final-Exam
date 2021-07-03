@@ -1,0 +1,27 @@
+/* Comments */
+
+.mainBox {
+  margin: 5px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.avatar {
+  margin: 5px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+.textBox {
+  background-color: silver;
+  border-radius: 15px;
+  margin: 5px;
+}
+
+.text {
+  margin: 5px;
+}
+
+.link {
+  margin: 5px;
+}

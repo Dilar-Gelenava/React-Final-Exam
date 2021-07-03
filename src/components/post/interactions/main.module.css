@@ -1,0 +1,25 @@
+/* Interactions */
+
+.mainBox {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.interactions {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.interactionsInfo {
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttons {
+  color: white;
+  background-color: #ffffff00;
+  border-radius: 10px;
+  border: none;
+}
