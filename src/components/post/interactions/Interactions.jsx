@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import MainCSS from './main.module.css';
 
-function Interactions() {
+function Interactions({ changeDisplayComments }) {
   return (
     <div className={MainCSS.mainBox}>
       <div className={MainCSS.interactionsInfo}>
@@ -10,11 +11,17 @@ function Interactions() {
       </div>
       <div className={MainCSS.interactions}>
         <button className={MainCSS.buttons}>Like</button>
-        <button className={MainCSS.buttons}>Comment</button>
+        <button onClick={changeDisplayComments} className={MainCSS.buttons}>
+          Comments
+        </button>
         <button className={MainCSS.buttons}>Dislike</button>
       </div>
     </div>
   );
 }
+
+Interactions.propTypes = {
+  changeDisplayComments: PropTypes.func,
+};
 
 export default Interactions;

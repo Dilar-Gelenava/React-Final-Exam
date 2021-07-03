@@ -4,7 +4,7 @@ import MainCSS from './main.module.css';
 function SingleComment() {
   return (
     <div className={MainCSS.mainBox}>
-      <Link>
+      <Link to="/">
         <img
           className={MainCSS.avatar}
           src="https://jejuhydrofarms.com/wp-content/uploads/2020/05/blank-profile-picture-973460_1280.png"
