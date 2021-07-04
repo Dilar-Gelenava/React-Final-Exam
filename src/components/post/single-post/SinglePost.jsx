@@ -5,8 +5,9 @@ import Interactions from '../interactions';
 import SingleComment from '../comment/single-comment';
 import CommentForm from '../comment/comment-form';
 import MainCSS from './main.module.css';
+import { DeletePost } from '../../../services/posts/DeletePost';
 
-function SinglePost() {
+function SinglePost({ post }) {
   const [displayComments, setDisplayComments] = useState(false);
 
   const changeDisplayComments = () => {
@@ -24,36 +25,35 @@ function SinglePost() {
           />
         </Link>
         <p>
-          <span>User Name</span>
+          <span>User Name - {post.userId}</span>
+          <span onClick={() => DeletePost(post.postId)} className="ms-3">
+            •••
+          </span>
           <br />
-          <span>10m ago</span>
+          <span>{post.date}</span>
         </p>
       </div>
       <div className="d-flex justify-content-center">
-        <p className={MainCSS.description}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s
-        </p>
+        <p className={MainCSS.description}>{post.description}</p>
       </div>
 
-      <div className={MainCSS.postImageBox}>
-        <img
-          className={MainCSS.postImage}
-          src="https://res.cloudinary.com/practicaldev/image/fetch/s--Yo7-Tl_W--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/aykr6602h90tij1154ha.png"
-          alt="post"
-        />
-      </div>
+      {post.imageUrl && (
+        <div className={MainCSS.postImageBox}>
+          <img className={MainCSS.postImage} src={post.imageUrl} alt="post" />
+        </div>
+      )}
+      {post.videoUrl && (
+        <video width="100%" controls>
+          <source src={post.videoUrl} type="video/mp4" />
+          Your browser does not support HTML video.
+        </video>
+      )}
+
       <Interactions changeDisplayComments={changeDisplayComments} />
       <div
-        className={classNames(
-          {
-            'd-block': displayComments,
-          },
-          {
-            'd-none': !displayComments,
-          }
-        )}>
+        className={classNames({
+          'd-none': !displayComments,
+        })}>
         <SingleComment />
         <SingleComment />
         <SingleComment />

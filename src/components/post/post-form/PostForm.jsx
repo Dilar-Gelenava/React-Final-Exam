@@ -1,15 +1,15 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import MainCSS from './main.module.css';
 import classNames from 'classnames';
+import { AddPost } from '../../../services/posts/AddPost';
+import MainCSS from './main.module.css';
 
 function PostForm() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (formData) => {
-    console.log(formData);
+    AddPost(formData);
   };
 
   const [displayUrl, setDisplayUrl] = useState(false);
@@ -30,8 +30,8 @@ function PostForm() {
             type="text"
             className={MainCSS.text}
             placeholder="What's on your mind, User?"
-            name="text"
-            {...register('text', { required: true })}
+            name="description"
+            {...register('description', { required: true })}
           />
         </div>
 
@@ -40,7 +40,7 @@ function PostForm() {
           className={classNames(MainCSS.text, {
             'd-none': displayUrl !== 'image',
           })}
-          style={{ marginBottom: '10px' }}
+          style={{ marginBottom: '15px' }}
           placeholder="Image URL"
           name="imageUrl"
           {...register('imageUrl')}
@@ -51,7 +51,7 @@ function PostForm() {
           className={classNames(MainCSS.text, {
             'd-none': displayUrl !== 'video',
           })}
-          style={{ marginBottom: '10px' }}
+          style={{ marginBottom: '15px' }}
           placeholder="Video URL"
           name="videoUrl"
           {...register('videoUrl')}

@@ -1,5 +1,8 @@
 # Getting Started with Create React App
 
+This project is hosted on Netlify,
+Open [https://brave-yonath-4421b0.netlify.app/](https://brave-yonath-4421b0.netlify.app/) to view it in the browser.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
