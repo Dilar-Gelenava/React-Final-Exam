@@ -1,0 +1,45 @@
+/* Post Form */
+
+.mainBox {
+  margin: 10px;
+  background-color: #242526;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.text {
+  width: 100%;
+  height: 40px;
+  border-radius: 50px;
+  color: white;
+  background-color: #3a3b3c;
+  border: 1px solid white;
+  outline: none;
+  text-indent: 10px;
+}
+
+.avatar {
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.topBox {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.optionsButton {
+  background-color: gray;
+  outline: none;
+  border-radius: 5px;
+  width: 75px;
+  height: 40px;
+}
+
+.optionsBox {
+  display: flex;
+  justify-content: space-around;
+}

@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom';
 import MainCSS from './main.module.css';
 
 function CommentForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = async (formData) => {
     console.log(formData.comment);
@@ -31,11 +27,6 @@ function CommentForm() {
               name="comment"
               {...register('comment', { required: true })}
             />
-            {errors.email && (
-              <span className="text-danger form-text">
-                {errors.email.type === 'required' && 'text is required'}
-              </span>
-            )}
           </div>
         </form>
       </div>

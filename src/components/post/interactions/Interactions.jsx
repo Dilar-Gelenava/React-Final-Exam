@@ -10,11 +10,30 @@ function Interactions({ changeDisplayComments }) {
         <span className="text-white">3</span>
       </div>
       <div className={MainCSS.interactions}>
-        <button className={MainCSS.buttons}>Like</button>
+        <button className={MainCSS.buttons}>
+          <img
+            className={MainCSS.icons}
+            src={`${process.env.PUBLIC_URL}/resources/like.svg`}
+            alt="like"
+          />
+          Like
+        </button>
         <button onClick={changeDisplayComments} className={MainCSS.buttons}>
+          <img
+            className={MainCSS.icons}
+            src={`${process.env.PUBLIC_URL}/resources/comments.svg`}
+            alt="comments"
+          />
           Comments
         </button>
-        <button className={MainCSS.buttons}>Dislike</button>
+        <button className={MainCSS.buttons}>
+          <img
+            className={MainCSS.icons}
+            src={`${process.env.PUBLIC_URL}/resources/dislike.svg`}
+            alt="dislike"
+          />
+          Dislike
+        </button>
       </div>
     </div>
   );

@@ -13,13 +13,14 @@
 }
 
 .textBox {
-  background-color: rgb(100, 100, 100);
+  background-color: #3a3b3c;
   border-radius: 15px;
   margin: 5px;
 }
 
 .text {
   margin: 5px;
+  color: white;
 }
 
 .link {

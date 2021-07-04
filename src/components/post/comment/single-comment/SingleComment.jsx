@@ -12,7 +12,7 @@ function SingleComment() {
         />
       </Link>
       <div className={MainCSS.textBox}>
-        <span className="ms-2">User Name</span>
+        <span className="ms-2 text-light">User Name</span>
         <p className={MainCSS.text}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry.
