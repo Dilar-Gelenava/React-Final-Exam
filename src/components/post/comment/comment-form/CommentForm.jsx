@@ -1,12 +1,13 @@
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { AddComment } from '../../../../services/comments/AddComment';
 import MainCSS from './main.module.css';
 
-function CommentForm() {
+function CommentForm({ postId }) {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (formData) => {
-    console.log(formData.comment);
+    AddComment(formData, postId);
   };
 
   return (
@@ -24,8 +25,8 @@ function CommentForm() {
             <input
               className={MainCSS.input}
               placeholder="Write a comment..."
-              name="comment"
-              {...register('comment', { required: true })}
+              name="text"
+              {...register('text', { required: true })}
             />
           </div>
         </form>

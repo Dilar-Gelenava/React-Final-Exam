@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import MainCSS from './main.module.css';
 
-function Interactions({ changeDisplayComments }) {
+function Interactions({ changeDisplayComments, commentCount }) {
   return (
     <div className={MainCSS.mainBox}>
       <div className={MainCSS.interactionsInfo}>
         <span className="text-white">1</span>
-        <span className="text-white">2</span>
+        <span className="text-white">{commentCount}</span>
         <span className="text-white">3</span>
       </div>
       <div className={MainCSS.interactions}>

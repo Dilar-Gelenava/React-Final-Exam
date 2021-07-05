@@ -1,4 +1,7 @@
 export const GetPosts = () => {
   const posts = JSON.parse(localStorage.getItem('posts'));
-  return posts;
+  if (posts) {
+    return posts.reverse();
+  }
+  return null;
 };

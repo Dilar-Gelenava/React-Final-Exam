@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
+import { DeleteComment } from '../../../../services/comments/DeleteComment';
 import MainCSS from './main.module.css';
 
-function SingleComment() {
+function SingleComment({ comment }) {
   return (
     <div className={MainCSS.mainBox}>
       <Link to="/">
@@ -12,11 +13,13 @@ function SingleComment() {
         />
       </Link>
       <div className={MainCSS.textBox}>
-        <span className="ms-2 text-light">User Name</span>
-        <p className={MainCSS.text}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </p>
+        <span className="ms-2 text-light">User Name - {comment.userId}</span>
+        <span
+          onClick={() => DeleteComment(comment.id)}
+          className="ms-3 me-1 text-light">
+          •••
+        </span>
+        <p className={MainCSS.text}>{comment.text}</p>
       </div>
     </div>
   );

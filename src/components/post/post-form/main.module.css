@@ -1,6 +1,7 @@
 /* Post Form */
 
 .mainBox {
+  width: 600px;
   margin: 10px;
   background-color: #242526;
   padding: 20px;
@@ -45,4 +46,10 @@
   margin-right: 10px;
   display: flex;
   justify-content: space-around;
+}
+
+@media only screen and (max-width: 600px) {
+  .mainBox {
+    width: auto;
+  }
 }

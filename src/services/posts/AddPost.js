@@ -1,8 +1,8 @@
 export const AddPost = (data) => {
   var posts = JSON.parse(localStorage.getItem('posts'));
   const post = {
+    id: Date.now(),
     userId: 1,
-    postId: Date.now(),
     description: data.description,
     imageUrl: data.imageUrl,
     videoUrl: data.videoUrl,

@@ -4,10 +4,17 @@ import classNames from 'classnames';
 import Interactions from '../interactions';
 import SingleComment from '../comment/single-comment';
 import CommentForm from '../comment/comment-form';
-import MainCSS from './main.module.css';
 import { DeletePost } from '../../../services/posts/DeletePost';
+import { GetComments } from '../../../services/comments/GetComments';
+import MainCSS from './main.module.css';
 
 function SinglePost({ post }) {
+  const comments = GetComments(post.id);
+  var commentCount = 0;
+  if (comments) {
+    commentCount = comments.length;
+  }
+
   const [displayComments, setDisplayComments] = useState(false);
 
   const changeDisplayComments = () => {
@@ -26,7 +33,7 @@ function SinglePost({ post }) {
         </Link>
         <p>
           <span>User Name - {post.userId}</span>
-          <span onClick={() => DeletePost(post.postId)} className="ms-3">
+          <span onClick={() => DeletePost(post.id)} className="ms-3">
             •••
           </span>
           <br />
@@ -49,16 +56,20 @@ function SinglePost({ post }) {
         </video>
       )}
 
-      <Interactions changeDisplayComments={changeDisplayComments} />
+      <Interactions
+        changeDisplayComments={changeDisplayComments}
+        commentCount={commentCount}
+      />
       <div
         className={classNames({
           'd-none': !displayComments,
         })}>
-        <SingleComment />
-        <SingleComment />
-        <SingleComment />
+        {comments &&
+          comments.map((comment) => (
+            <SingleComment comment={comment} key={comment.id} />
+          ))}
       </div>
-      <CommentForm />
+      <CommentForm postId={post.id} />
     </div>
   );
 }
