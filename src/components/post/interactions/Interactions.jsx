@@ -1,18 +1,30 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Like } from '../../../services/likes/Like';
+import { GetLikes } from '../../../services/likes/GetLikes';
+
 import MainCSS from './main.module.css';
 
 function Interactions({ changeDisplayComments, commentCount, postId }) {
+  const [likes, setLikes] = useState(GetLikes(postId));
+
+  const changeLikes = () => {
+    setLikes(GetLikes(postId));
+  };
+
   return (
     <div className={MainCSS.mainBox}>
       <div className={MainCSS.interactionsInfo}>
-        <span className={MainCSS.count}>1</span>
+        <span className={MainCSS.count}>{likes.up}</span>
         <span className={MainCSS.count}>{commentCount}</span>
-        <span className={MainCSS.count}>3</span>
+        <span className={MainCSS.count}>{likes.down}</span>
       </div>
       <div className={MainCSS.interactions}>
         <button
-          onClick={() => Like(true, postId, 1)}
+          onClick={() => {
+            Like(true, postId, 1);
+            changeLikes();
+          }}
           className={MainCSS.buttons}>
           <img
             className={MainCSS.icons}
@@ -30,7 +42,10 @@ function Interactions({ changeDisplayComments, commentCount, postId }) {
           Comments
         </button>
         <button
-          onClick={() => Like(false, postId, 1)}
+          onClick={() => {
+            Like(false, postId, 1);
+            changeLikes();
+          }}
           className={MainCSS.buttons}>
           <img
             className={MainCSS.icons}
