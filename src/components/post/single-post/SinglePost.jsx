@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import React, { useRef } from 'react';
 import classNames from 'classnames';
 import Interactions from '../interactions';
 import SingleComment from '../comment/single-comment';
@@ -8,8 +9,13 @@ import { DeletePost } from '../../../services/posts/DeletePost';
 import { GetComments } from '../../../services/comments/GetComments';
 import MainCSS from './main.module.css';
 
-function SinglePost({ post }) {
-  const comments = GetComments(post.id);
+function SinglePost({ post, changePosts }) {
+  const [comments, setComments] = useState(GetComments(post.id));
+
+  const changeComments = () => {
+    setComments(GetComments(post.id));
+  };
+
   var commentCount = 0;
   if (comments) {
     commentCount = comments.length;
@@ -19,6 +25,11 @@ function SinglePost({ post }) {
 
   const changeDisplayComments = () => {
     setDisplayComments(!displayComments);
+  };
+
+  const interactionsRef = useRef();
+  const scroll = () => {
+    interactionsRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -33,7 +44,12 @@ function SinglePost({ post }) {
         </Link>
         <p>
           <span>User Name - {post.userId}</span>
-          <span onClick={() => DeletePost(post.id)} className="ms-3">
+          <span
+            onClick={() => {
+              DeletePost(post.id);
+              changePosts();
+            }}
+            className="ms-3">
             •••
           </span>
           <br />
@@ -62,6 +78,7 @@ function SinglePost({ post }) {
         changeDisplayComments={changeDisplayComments}
         commentCount={commentCount}
         postId={post.id}
+        interactionsRef={interactionsRef}
       />
       <div
         className={classNames({
@@ -69,10 +86,19 @@ function SinglePost({ post }) {
         })}>
         {comments &&
           comments.map((comment) => (
-            <SingleComment comment={comment} key={comment.id} />
+            <SingleComment
+              comment={comment}
+              changeComments={changeComments}
+              key={comment.id}
+            />
           ))}
       </div>
-      <CommentForm postId={post.id} />
+      <CommentForm
+        postId={post.id}
+        changeComments={changeComments}
+        scroll={scroll}
+        setDisplayComments={setDisplayComments}
+      />
     </div>
   );
 }

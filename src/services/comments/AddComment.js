@@ -15,5 +15,4 @@ export const AddComment = (data, postId) => {
     comments.push(comment);
     localStorage.setItem('comments', JSON.stringify(comments));
   }
-  window.location.reload();
 };

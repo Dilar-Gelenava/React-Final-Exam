@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import { AddComment } from '../../../../services/comments/AddComment';
 import MainCSS from './main.module.css';
 
-function CommentForm({ postId }) {
-  const { register, handleSubmit } = useForm();
+function CommentForm({ postId, changeComments, scroll, setDisplayComments }) {
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (formData) => {
     AddComment(formData, postId);
+    changeComments();
+    setDisplayComments(true);
+    scroll();
+    reset();
   };
 
   return (
@@ -26,7 +30,7 @@ function CommentForm({ postId }) {
               className={MainCSS.input}
               placeholder="Write a comment..."
               name="text"
-              {...register('text', { required: true })}
+              {...register('text', { required: true, min: 1 })}
             />
           </div>
         </form>

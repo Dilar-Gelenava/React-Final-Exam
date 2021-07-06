@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { DeleteComment } from '../../../../services/comments/DeleteComment';
 import MainCSS from './main.module.css';
 
-function SingleComment({ comment }) {
+function SingleComment({ comment, changeComments }) {
   return (
     <div className={MainCSS.mainBox}>
       <Link to="/">
@@ -15,7 +15,10 @@ function SingleComment({ comment }) {
       <div className={MainCSS.textBox}>
         <span className="ms-2 text-light">User Name - {comment.userId}</span>
         <span
-          onClick={() => DeleteComment(comment.id)}
+          onClick={() => {
+            DeleteComment(comment.id);
+            changeComments();
+          }}
           className="ms-3 me-1 text-light">
           •••
         </span>

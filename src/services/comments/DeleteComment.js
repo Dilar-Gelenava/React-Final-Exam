@@ -4,5 +4,4 @@ export const DeleteComment = (id) => {
     return comment.id !== id;
   });
   localStorage.setItem('comments', JSON.stringify(newComments));
-  window.location.reload();
 };

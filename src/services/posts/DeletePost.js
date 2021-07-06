@@ -20,6 +20,4 @@ export const DeletePost = (id) => {
     });
     localStorage.setItem('likes', JSON.stringify(newLikes));
   }
-
-  window.location.reload();
 };

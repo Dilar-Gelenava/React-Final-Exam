@@ -5,7 +5,12 @@ import { GetLikes } from '../../../services/likes/GetLikes';
 
 import MainCSS from './main.module.css';
 
-function Interactions({ changeDisplayComments, commentCount, postId }) {
+function Interactions({
+  changeDisplayComments,
+  commentCount,
+  postId,
+  interactionsRef,
+}) {
   const [likes, setLikes] = useState(GetLikes(postId));
 
   const changeLikes = () => {
@@ -13,7 +18,7 @@ function Interactions({ changeDisplayComments, commentCount, postId }) {
   };
 
   return (
-    <div className={MainCSS.mainBox}>
+    <div ref={interactionsRef} className={MainCSS.mainBox}>
       <div className={MainCSS.interactionsInfo}>
         <span className={MainCSS.count}>{likes.up}</span>
         <span className={MainCSS.count}>{commentCount}</span>

@@ -16,5 +16,4 @@ export const AddPost = (data) => {
     posts.push(post);
     localStorage.setItem('posts', JSON.stringify(posts));
   }
-  window.location.reload();
 };

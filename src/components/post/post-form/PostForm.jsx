@@ -5,11 +5,13 @@ import classNames from 'classnames';
 import { AddPost } from '../../../services/posts/AddPost';
 import MainCSS from './main.module.css';
 
-function PostForm() {
-  const { register, handleSubmit } = useForm();
+function PostForm({ changePosts }) {
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (formData) => {
     AddPost(formData);
+    changePosts();
+    reset();
   };
 
   const [displayUrl, setDisplayUrl] = useState(false);
