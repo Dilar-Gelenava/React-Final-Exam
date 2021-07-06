@@ -19,7 +19,9 @@ function SingleComment({ comment, changeComments }) {
             DeleteComment(comment.id);
             changeComments();
           }}
-          className="ms-3 me-1 text-light">
+          className="ms-3 me-1 text-light"
+          role="button"
+          title="delete">
           •••
         </span>
         <p className={MainCSS.text}>{comment.text}</p>

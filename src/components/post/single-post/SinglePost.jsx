@@ -49,7 +49,9 @@ function SinglePost({ post, changePosts }) {
               DeletePost(post.id);
               changePosts();
             }}
-            className="ms-3">
+            className="ms-3"
+            role="button"
+            title="delete">
             •••
           </span>
           <br />
@@ -67,7 +69,7 @@ function SinglePost({ post, changePosts }) {
       )}
       {post.videoUrl && (
         <div className={MainCSS.postImageBox}>
-          <video width="100%" controls>
+          <video className={MainCSS.postImage} width="100%" controls>
             <source src={post.videoUrl} type="video/mp4" />
             Your browser does not support HTML video.
           </video>

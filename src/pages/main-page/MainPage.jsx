@@ -2,6 +2,7 @@ import { useState } from 'react';
 import SinglePost from '../../components/post/single-post';
 import PostForm from '../../components/post/post-form';
 import { GetPosts } from '../../services/posts/GetPosts';
+import { LoggedIn } from '../../HOC/LoggedIn';
 
 function MainPage() {
   const [posts, setPosts] = useState(GetPosts());
@@ -24,4 +25,4 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export default LoggedIn(MainPage);
