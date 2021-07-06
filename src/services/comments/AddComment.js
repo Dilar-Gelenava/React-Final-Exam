@@ -1,7 +1,9 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export const AddComment = (data, postId) => {
   var comments = JSON.parse(localStorage.getItem('comments'));
   const comment = {
-    id: Date.now(),
+    id: uuidv4(),
     userId: 1,
     postId: postId,
     text: data.text,

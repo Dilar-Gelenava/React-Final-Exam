@@ -1,7 +1,9 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export const AddPost = (data) => {
   var posts = JSON.parse(localStorage.getItem('posts'));
   const post = {
-    id: Date.now(),
+    id: uuidv4(),
     userId: 1,
     description: data.description,
     imageUrl: data.imageUrl,

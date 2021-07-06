@@ -1,16 +1,19 @@
 import PropTypes from 'prop-types';
+import { Like } from '../../../services/likes/Like';
 import MainCSS from './main.module.css';
 
-function Interactions({ changeDisplayComments, commentCount }) {
+function Interactions({ changeDisplayComments, commentCount, postId }) {
   return (
     <div className={MainCSS.mainBox}>
       <div className={MainCSS.interactionsInfo}>
-        <span className="text-white">1</span>
-        <span className="text-white">{commentCount}</span>
-        <span className="text-white">3</span>
+        <span className={MainCSS.count}>1</span>
+        <span className={MainCSS.count}>{commentCount}</span>
+        <span className={MainCSS.count}>3</span>
       </div>
       <div className={MainCSS.interactions}>
-        <button className={MainCSS.buttons}>
+        <button
+          onClick={() => Like(true, postId, 1)}
+          className={MainCSS.buttons}>
           <img
             className={MainCSS.icons}
             src={`${process.env.PUBLIC_URL}/resources/like.svg`}
@@ -26,7 +29,9 @@ function Interactions({ changeDisplayComments, commentCount }) {
           />
           Comments
         </button>
-        <button className={MainCSS.buttons}>
+        <button
+          onClick={() => Like(false, postId, 1)}
+          className={MainCSS.buttons}>
           <img
             className={MainCSS.icons}
             src={`${process.env.PUBLIC_URL}/resources/dislike.svg`}
@@ -41,6 +46,7 @@ function Interactions({ changeDisplayComments, commentCount }) {
 
 Interactions.propTypes = {
   changeDisplayComments: PropTypes.func,
+  commentCount: PropTypes.number,
 };
 
 export default Interactions;

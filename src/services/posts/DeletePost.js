@@ -13,5 +13,13 @@ export const DeletePost = (id) => {
     localStorage.setItem('comments', JSON.stringify(newComments));
   }
 
+  const likes = JSON.parse(localStorage.getItem('likes'));
+  if (likes) {
+    const newLikes = likes.filter(function (like) {
+      return like.postId !== id;
+    });
+    localStorage.setItem('likes', JSON.stringify(newLikes));
+  }
+
   window.location.reload();
 };

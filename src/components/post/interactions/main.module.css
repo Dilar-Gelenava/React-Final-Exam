@@ -1,20 +1,26 @@
 /* Interactions */
 
 .mainBox {
-  margin-left: 10px;
-  margin-right: 10px;
+  color: white;
+  margin-bottom: 10px;
 }
 
 .interactions {
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+  border: 1px solid gray;
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .interactionsInfo {
   display: flex;
   justify-content: space-around;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 .buttons {
@@ -29,4 +35,8 @@
   margin-right: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.count {
+  color: white;
 }

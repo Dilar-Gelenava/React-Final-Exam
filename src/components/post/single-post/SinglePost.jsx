@@ -50,15 +50,18 @@ function SinglePost({ post }) {
         </div>
       )}
       {post.videoUrl && (
-        <video width="100%" controls>
-          <source src={post.videoUrl} type="video/mp4" />
-          Your browser does not support HTML video.
-        </video>
+        <div className={MainCSS.postImageBox}>
+          <video width="100%" controls>
+            <source src={post.videoUrl} type="video/mp4" />
+            Your browser does not support HTML video.
+          </video>
+        </div>
       )}
 
       <Interactions
         changeDisplayComments={changeDisplayComments}
         commentCount={commentCount}
+        postId={post.id}
       />
       <div
         className={classNames({
