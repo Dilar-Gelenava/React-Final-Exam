@@ -7,9 +7,13 @@ import SingleComment from '../comment/single-comment';
 import CommentForm from '../comment/comment-form';
 import { DeletePost } from '../../../services/posts/DeletePost';
 import { GetComments } from '../../../services/comments/GetComments';
+import { TimeDiff } from '../../../services/date/TimeDiff';
+import { GetUserData } from '../../../services/users/GetUserData';
 import MainCSS from './main.module.css';
 
 function SinglePost({ post, changePosts }) {
+  const user = GetUserData(post.userId);
+
   const [comments, setComments] = useState(GetComments(post.id));
 
   const changeComments = () => {
@@ -35,15 +39,11 @@ function SinglePost({ post, changePosts }) {
   return (
     <div className={MainCSS.mainBox}>
       <div className={MainCSS.postUserBox}>
-        <Link to="/" className={MainCSS.link}>
-          <img
-            className={MainCSS.avatar}
-            src="https://jejuhydrofarms.com/wp-content/uploads/2020/05/blank-profile-picture-973460_1280.png"
-            alt="avatar"
-          />
+        <Link to={`profile?id=${user.id}`} className={MainCSS.link}>
+          <img className={MainCSS.avatar} src={user.avatar} alt="avatar" />
         </Link>
         <p>
-          <span>User Name - {post.userId}</span>
+          <span>{user.userName}</span>
           <span
             onClick={() => {
               DeletePost(post.id);
@@ -55,7 +55,9 @@ function SinglePost({ post, changePosts }) {
             •••
           </span>
           <br />
-          <span>{post.date}</span>
+          <span className="text-muted small" title={Date(post.date)}>
+            {TimeDiff(post.date)}
+          </span>
         </p>
       </div>
       <div className="d-flex justify-content-center">

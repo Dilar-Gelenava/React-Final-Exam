@@ -1,0 +1,36 @@
+/* Profile Page */
+
+.mainBox {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.topBox {
+  width: 600px;
+  height: 500px;
+}
+
+.avatarBox {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  margin-top: -150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #18191a;
+}
+
+.cover {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}

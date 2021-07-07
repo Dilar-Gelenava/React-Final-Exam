@@ -6,6 +6,8 @@ export const AddUser = (data) => {
     userName: data.userName,
     email: data.email,
     password: data.password,
+    avatar: `${process.env.PUBLIC_URL}/images/avatar.png`,
+    cover: `${process.env.PUBLIC_URL}/images/cover.png`,
   };
   var users = JSON.parse(localStorage.getItem('users'));
   if (users) {

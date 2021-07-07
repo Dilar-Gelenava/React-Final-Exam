@@ -3,9 +3,12 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { AddPost } from '../../../services/posts/AddPost';
+import { GetUserData } from '../../../services/users/GetUserData';
 import MainCSS from './main.module.css';
 
 function PostForm({ changePosts }) {
+  const user = GetUserData(localStorage.getItem('currentUserId'));
+
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (formData) => {
@@ -20,12 +23,8 @@ function PostForm({ changePosts }) {
     <div className={MainCSS.mainBox}>
       <form id="postForm" onSubmit={handleSubmit(onSubmit)}>
         <div className={MainCSS.topBox}>
-          <Link to="/">
-            <img
-              className={MainCSS.avatar}
-              src="https://jejuhydrofarms.com/wp-content/uploads/2020/05/blank-profile-picture-973460_1280.png"
-              alt="avatar"
-            />
+          <Link to={`profile?id=${user.id}`}>
+            <img className={MainCSS.avatar} src={user.avatar} alt="avatar" />
           </Link>
 
           <input

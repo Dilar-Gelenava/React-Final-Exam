@@ -1,9 +1,12 @@
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AddComment } from '../../../../services/comments/AddComment';
+import { GetUserData } from '../../../../services/users/GetUserData';
 import MainCSS from './main.module.css';
 
 function CommentForm({ postId, changeComments, scroll, setDisplayComments }) {
+  const user = GetUserData(localStorage.getItem('currentUserId'));
+
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (formData) => {
@@ -17,12 +20,8 @@ function CommentForm({ postId, changeComments, scroll, setDisplayComments }) {
   return (
     <>
       <div className={MainCSS.mainBox}>
-        <Link to="/">
-          <img
-            className={MainCSS.avatar}
-            src="https://jejuhydrofarms.com/wp-content/uploads/2020/05/blank-profile-picture-973460_1280.png"
-            alt="avatar"
-          />
+        <Link to={`profile?id=${user.id}`}>
+          <img className={MainCSS.avatar} src={user.avatar} alt="avatar" />
         </Link>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>

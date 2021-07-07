@@ -1,19 +1,22 @@
 import { Link } from 'react-router-dom';
 import { DeleteComment } from '../../../../services/comments/DeleteComment';
+import { TimeDiff } from '../../../../services/date/TimeDiff';
+import { GetUserData } from '../../../../services/users/GetUserData';
 import MainCSS from './main.module.css';
 
 function SingleComment({ comment, changeComments }) {
+  const user = GetUserData(comment.userId);
+
   return (
     <div className={MainCSS.mainBox}>
-      <Link to="/">
-        <img
-          className={MainCSS.avatar}
-          src="https://jejuhydrofarms.com/wp-content/uploads/2020/05/blank-profile-picture-973460_1280.png"
-          alt="avatar"
-        />
+      <Link to={`profile?id=${user.id}`}>
+        <img className={MainCSS.avatar} src={user.avatar} alt="avatar" />
       </Link>
       <div className={MainCSS.textBox}>
-        <span className="ms-2 text-light">User Name - {comment.userId}</span>
+        <span className="ms-2 text-light">{user.userName}</span>
+        <span className="ms-2 text-muted small" title={Date(comment.date)}>
+          {TimeDiff(comment.date)}
+        </span>
         <span
           onClick={() => {
             DeleteComment(comment.id);

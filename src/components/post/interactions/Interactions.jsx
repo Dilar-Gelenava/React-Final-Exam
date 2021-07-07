@@ -19,9 +19,10 @@ function Interactions({
   };
 
   const [likes, setLikes] = useState(GetLikes(postId));
-  const [isLiked, setIsLiked] = useState(IsLiked(postId, 1));
-
-  const changeLikes = () => {
+  const [isLiked, setIsLiked] = useState(IsLiked(postId));
+  const like = (isUp) => {
+    Like(isUp, postId);
+    setIsLiked(IsLiked(postId));
     setLikes(GetLikes(postId));
   };
 
@@ -34,26 +35,32 @@ function Interactions({
       </div>
       <div className={MainCSS.interactions}>
         <button
+          style={{
+            color: `${(isLiked && isLiked.up && '#2c85fe') || 'white'}`,
+          }}
           onClick={() => {
             play();
-            Like(true, postId);
-            changeLikes();
-            setIsLiked(GetLikes(postId));
+            like(true);
           }}
           className={MainCSS.buttons}>
           <img
             className={MainCSS.icons}
-            src={`${process.env.PUBLIC_URL}/resources/like${
+            src={`${process.env.PUBLIC_URL}/icons/like${
               (isLiked && isLiked.up && '-on') || ''
             }.svg`}
             alt="like"
           />
           Like
         </button>
-        <button onClick={changeDisplayComments} className={MainCSS.buttons}>
+        <button
+          style={{
+            color: `${(commentCount && '#2c85fe') || 'white'}`,
+          }}
+          onClick={changeDisplayComments}
+          className={MainCSS.buttons}>
           <img
             className={MainCSS.icons}
-            src={`${process.env.PUBLIC_URL}/resources/comments${
+            src={`${process.env.PUBLIC_URL}/icons/comments${
               (commentCount && '-on') || ''
             }.svg`}
             alt="comments"
@@ -61,16 +68,17 @@ function Interactions({
           Comments
         </button>
         <button
+          style={{
+            color: `${(isLiked && isLiked.down && '#2c85fe') || 'white'}`,
+          }}
           onClick={() => {
             play();
-            Like(false, postId);
-            changeLikes();
-            setIsLiked(GetLikes(postId));
+            like(false);
           }}
           className={MainCSS.buttons}>
           <img
             className={MainCSS.icons}
-            src={`${process.env.PUBLIC_URL}/resources/dislike${
+            src={`${process.env.PUBLIC_URL}/icons/dislike${
               (isLiked && isLiked.down && '-on') || ''
             }.svg`}
             alt="dislike"
