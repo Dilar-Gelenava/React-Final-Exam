@@ -30,7 +30,7 @@ function PostForm({ changePosts }) {
           <input
             type="text"
             className={MainCSS.text}
-            placeholder="What's on your mind, User?"
+            placeholder={`What's on your mind, ${user.userName}?`}
             name="description"
             {...register('description', { required: true })}
           />

@@ -51,11 +51,13 @@ function Register() {
             className="form-control"
             placeholder="Password"
             name="password"
-            {...register('password', { required: true })}
+            {...register('password', { required: true, minLength: 8 })}
           />
           {errors.password && (
             <span className="text-danger form-text">
               {errors.password.type === 'required' && 'Password is required'}
+              {errors.password.type === 'minLength' &&
+                'must be at least 8 symbols'}
             </span>
           )}
         </div>

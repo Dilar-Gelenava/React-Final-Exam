@@ -19,6 +19,11 @@ function Navbar() {
             Profile
           </Link>
         </li>
+        <li className="nav-item navbar-brand ml-2">
+          <Link className="nav-link" to={'/seeds'}>
+            Seeds
+          </Link>
+        </li>
       </ul>
     </nav>
   );

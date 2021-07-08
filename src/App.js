@@ -4,6 +4,7 @@ import Navbar from './components/navbar';
 import MainPage from './pages/main-page';
 import AuthPage from './pages/auth-page';
 import ProfilePage from './pages/profile-page/ProfilePage';
+import SeedsPage from './pages/seeds-page/SeedsPage';
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Switch>
+            <Route path="/seeds">
+              <SeedsPage />
+            </Route>
             <Route path="/profile">
               <ProfilePage />
             </Route>
