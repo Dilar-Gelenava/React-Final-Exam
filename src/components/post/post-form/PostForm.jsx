@@ -37,7 +37,7 @@ function PostForm({ changePosts }) {
         </div>
 
         <input
-          type="text"
+          type="url"
           className={classNames(MainCSS.text, {
             'd-none': displayUrl !== 'image',
           })}
@@ -48,7 +48,7 @@ function PostForm({ changePosts }) {
         />
 
         <input
-          type="text"
+          type="url"
           className={classNames(MainCSS.text, {
             'd-none': displayUrl !== 'video',
           })}
@@ -56,6 +56,17 @@ function PostForm({ changePosts }) {
           placeholder="Video URL"
           name="videoUrl"
           {...register('videoUrl')}
+        />
+
+        <input
+          type="url"
+          className={classNames(MainCSS.text, {
+            'd-none': displayUrl !== 'youtube',
+          })}
+          style={{ marginBottom: '15px' }}
+          placeholder="Youtube URL"
+          name="youtubeUrl"
+          {...register('youtubeUrl')}
         />
       </form>
       <div className={MainCSS.optionsBox}>
@@ -68,6 +79,11 @@ function PostForm({ changePosts }) {
           onClick={() => setDisplayUrl('video')}
           className={MainCSS.optionsButton}>
           Video
+        </button>
+        <button
+          onClick={() => setDisplayUrl('youtube')}
+          className={MainCSS.optionsButton}>
+          Youtube
         </button>
         <button type="submit" form="postForm" className={MainCSS.optionsButton}>
           Post

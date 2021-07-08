@@ -9,6 +9,7 @@ export const AddPost = (data) => {
     description: data.description,
     imageUrl: data.imageUrl,
     videoUrl: data.videoUrl,
+    youtubeUrl: data.youtubeUrl,
     date: Date.now(),
   };
   if (!posts) {

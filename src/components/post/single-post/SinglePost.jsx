@@ -78,6 +78,17 @@ function SinglePost({ post, changePosts }) {
         </div>
       )}
 
+      {post.youtubeUrl && (
+        <div className={MainCSS.youtubeBox}>
+          <iframe
+            src={`https://www.youtube.com/embed/${post.youtubeUrl.substring(
+              post.youtubeUrl.indexOf('=') + 1
+            )}`}
+            title={user.userName}
+            allowFullScreen></iframe>
+        </div>
+      )}
+
       <Interactions
         changeDisplayComments={changeDisplayComments}
         commentCount={commentCount}
