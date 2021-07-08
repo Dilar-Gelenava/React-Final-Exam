@@ -1,12 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
 
-export const Like = (isUp, postId) => {
+export const Like = (isUp, postId, postUserId) => {
   var likes = JSON.parse(localStorage.getItem('likes'));
   const userId = localStorage.getItem('currentUserId');
   const like = {
     id: uuidv4(),
     isUp: isUp,
     postId: postId,
+    postUserId: postUserId,
     userId: userId,
   };
 

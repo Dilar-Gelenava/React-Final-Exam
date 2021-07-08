@@ -11,6 +11,7 @@ function Interactions({
   changeDisplayComments,
   commentCount,
   postId,
+  postUserId,
   interactionsRef,
 }) {
   const play = () => {
@@ -21,7 +22,7 @@ function Interactions({
   const [likes, setLikes] = useState(GetLikes(postId));
   const [isLiked, setIsLiked] = useState(IsLiked(postId));
   const like = (isUp) => {
-    Like(isUp, postId);
+    Like(isUp, postId, postUserId);
     setIsLiked(IsLiked(postId));
     setLikes(GetLikes(postId));
   };

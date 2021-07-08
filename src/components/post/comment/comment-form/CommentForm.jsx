@@ -4,13 +4,19 @@ import { AddComment } from '../../../../services/comments/AddComment';
 import { GetUserData } from '../../../../services/users/GetUserData';
 import MainCSS from './main.module.css';
 
-function CommentForm({ postId, changeComments, scroll, setDisplayComments }) {
+function CommentForm({
+  postId,
+  postUserId,
+  changeComments,
+  scroll,
+  setDisplayComments,
+}) {
   const user = GetUserData(localStorage.getItem('currentUserId'));
 
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (formData) => {
-    AddComment(formData, postId);
+    AddComment(formData, postId, postUserId);
     changeComments();
     setDisplayComments(true);
     scroll();

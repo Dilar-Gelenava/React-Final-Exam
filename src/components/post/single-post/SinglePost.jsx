@@ -93,6 +93,7 @@ function SinglePost({ post, changePosts }) {
         changeDisplayComments={changeDisplayComments}
         commentCount={commentCount}
         postId={post.id}
+        postUserId={post.userId}
         interactionsRef={interactionsRef}
       />
       <div
@@ -110,6 +111,7 @@ function SinglePost({ post, changePosts }) {
       </div>
       <CommentForm
         postId={post.id}
+        postUserId={post.userId}
         changeComments={changeComments}
         scroll={scroll}
         setDisplayComments={setDisplayComments}

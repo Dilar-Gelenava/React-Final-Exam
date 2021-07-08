@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { UpdateUser } from '../../../services/users/UpdateUser';
+import { RemoveUser } from '../../../services/users/RemoveUser';
 import MainCSS from './main.module.css';
 
 function ProfileForm({ user }) {
@@ -18,6 +19,14 @@ function ProfileForm({ user }) {
   const onSubmit = async (formData) => {
     UpdateUser(formData);
     alert('Updated successfully');
+  };
+
+  const deleteAccount = () => {
+    if (window.confirm('Do you really want to delete account?')) {
+      if (window.confirm('Are you sure?')) {
+        RemoveUser();
+      }
+    }
   };
 
   return (
@@ -49,9 +58,13 @@ function ProfileForm({ user }) {
             <p>Biography</p>
             <textarea rows="5" name="bio" {...register('bio')}></textarea>
           </div>
-
           <div className={MainCSS.btnBlock}>
             <button type="submit">Update</button>
+          </div>
+          <div className={MainCSS.btnBlock}>
+            <button onClick={deleteAccount} type="button">
+              Delete Account
+            </button>
           </div>
         </form>
       </div>
