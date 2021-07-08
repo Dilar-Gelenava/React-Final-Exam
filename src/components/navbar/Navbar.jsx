@@ -15,7 +15,7 @@ function Navbar() {
           </Link>
         </li>
         <li className="nav-item navbar-brand ml-2">
-          <Link className="nav-link" to="/profile">
+          <Link className="nav-link" to={'/profile'}>
             Profile
           </Link>
         </li>

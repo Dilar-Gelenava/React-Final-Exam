@@ -39,7 +39,7 @@ function SinglePost({ post, changePosts }) {
   return (
     <div className={MainCSS.mainBox}>
       <div className={MainCSS.postUserBox}>
-        <Link to={`profile?id=${user.id}`} className={MainCSS.link}>
+        <Link to={`/profile?id=${user.id}`} className={MainCSS.link}>
           <img className={MainCSS.avatar} src={user.avatar} alt="avatar" />
         </Link>
         <p>

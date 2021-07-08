@@ -23,7 +23,7 @@ function PostForm({ changePosts }) {
     <div className={MainCSS.mainBox}>
       <form id="postForm" onSubmit={handleSubmit(onSubmit)}>
         <div className={MainCSS.topBox}>
-          <Link to={`profile?id=${user.id}`}>
+          <Link to={`/profile?id=${user.id}`}>
             <img className={MainCSS.avatar} src={user.avatar} alt="avatar" />
           </Link>
 

@@ -9,7 +9,7 @@ function SingleComment({ comment, changeComments }) {
 
   return (
     <div className={MainCSS.mainBox}>
-      <Link to={`profile?id=${user.id}`}>
+      <Link to={`/profile?id=${user.id}`}>
         <img className={MainCSS.avatar} src={user.avatar} alt="avatar" />
       </Link>
       <div className={MainCSS.textBox}>

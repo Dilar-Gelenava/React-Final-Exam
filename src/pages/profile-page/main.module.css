@@ -1,36 +1,87 @@
 /* Profile Page */
 
-.mainBox {
-  color: white;
+.pageWrapper {
   display: flex;
   justify-content: center;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.topBox {
-  width: 600px;
-  height: 500px;
-}
-
-.avatarBox {
-  display: flex;
-  justify-content: center;
-}
-
-.avatar {
-  width: 200px;
-  height: 200px;
-  margin-top: -150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 5px solid #18191a;
-}
-
-.cover {
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
-  height: 300px;
+  height: 100%;
+}
+.topPageWrapper {
+  height: 325px;
+  width: 100%;
+  background: #242526;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+.topPageMenu {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  max-width: 700px;
+  height: 250px;
+  border-radius: 0px 0px 15px 15px;
+  background-size: cover;
+  background-position: center;
+  object-fit: contain;
+  background-repeat: no-repeat;
+}
+.imageName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
   object-fit: cover;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  align-items: center;
+}
+.imageName p {
+  font-family: 'Recursive';
+  font-size: 30px;
+  font-weight: bold;
+  color: #ececec;
+}
+.profilePicture {
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border: 4px solid #252525;
+  border-radius: 50%;
+  margin-top: 12rem;
+}
+
+@media (max-width: 600px) {
+  .top-page-menu {
+    height: 270px !important;
+  }
+  .profile-picture {
+    margin-top: 17rem;
+    height: 120px;
+    width: 120px;
+  }
+  .top-page-wrapper {
+    height: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  .top-page-menu {
+    height: 200px !important;
+  }
+  .profile-picture {
+    margin-top: 13rem;
+    height: 100px;
+    width: 100px;
+  }
+  .top-page-wrapper {
+    height: 330px;
+  }
+  .image-name p {
+    font-size: 24px;
+  }
 }

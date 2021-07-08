@@ -1,11 +1,12 @@
 import { LoggedIn } from '../../HOC/LoggedIn';
 import { GetUserData } from '../../services/users/GetUserData';
-import MainCSS from './main.module.css';
 import { useEffect, useState } from 'react';
+import ProfileForm from '../../components/profile/profile-form';
+import ProfileInfo from '../../components/profile/profile-info';
+import MainCSS from './main.module.css';
 
 function ProfilePage() {
   const currentUserId = localStorage.getItem('currentUserId');
-
   const [id, setId] = useState(currentUserId);
 
   const query_string = window.location.search;
@@ -23,20 +24,37 @@ function ProfilePage() {
   const user = GetUserData(id);
 
   return (
-    <div className={MainCSS.mainBox}>
-      {(id && id !== 'null' && (
-        <div>
-          <div className={MainCSS.topBox}>
-            <img className={MainCSS.cover} src={user.cover} alt="avatar" />
-            <div className={MainCSS.avatarBox}>
-              <img className={MainCSS.avatar} src={user.avatar} alt="avatar" />
+    <div>
+      <div className={MainCSS.pageWrapper}>
+        {(id && id !== 'null' && (
+          <>
+            <div className={MainCSS.topPageWrapper}>
+              <div
+                className={MainCSS.topPageMenu}
+                style={{
+                  background: `url(${user.cover})`,
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                }}>
+                <div className={MainCSS.imageName}>
+                  <img
+                    className={MainCSS.profilePicture}
+                    src={user.avatar}
+                    alt="cover"
+                  />
+                  <p>{user.userName}</p>
+                </div>
+              </div>
             </div>
-            <div className="d-flex justify-content-center">
-              <h2>{user.userName}</h2>
-            </div>
-          </div>
-        </div>
-      )) || <h1>no user</h1>}
+            {/* <!-- INFORMATION -->  */}
+            {(currentUserId === id && <ProfileForm user={user} />) || (
+              <ProfileInfo user={user} />
+            )}
+            {/* <!-- INFORMATION --> */}
+          </>
+        )) || <h1>User doesn't exist</h1>}
+      </div>
     </div>
   );
 }

@@ -4,10 +4,14 @@ export const AddUser = (data) => {
   const user = {
     id: uuidv4(),
     userName: data.userName,
-    email: data.email,
+    email: data.email.toLowerCase(),
     password: data.password,
+    firstName: data.userName,
+    lastName: '',
     avatar: `${process.env.PUBLIC_URL}/images/avatar.png`,
     cover: `${process.env.PUBLIC_URL}/images/cover.png`,
+    birth: Date(Date.now()),
+    bio: '',
   };
   var users = JSON.parse(localStorage.getItem('users'));
   if (users) {

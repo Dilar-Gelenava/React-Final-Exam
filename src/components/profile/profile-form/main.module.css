@@ -1,0 +1,102 @@
+.bottomPageWrapper {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  max-width: 700px;
+  flex-direction: row;
+  background: #242526;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+.testBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  width: 100%;
+  padding: 3px;
+}
+::placeholder {
+  color: #b0b3b8;
+}
+.testBox h5 {
+  color: #b0b3b8;
+}
+.testBox p {
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 500;
+}
+.testBox form {
+  width: 100%;
+  padding: 20px;
+}
+.testBox input,
+textarea {
+  outline: none;
+  margin-bottom: 10px;
+  border-style: none;
+  color: #ececec;
+  border-radius: 15px;
+  background: #38393b;
+}
+
+.testBox input:hover {
+  background: #46484d;
+}
+
+.testBox input {
+  width: calc(100%);
+  padding: 5px;
+  padding-left: 10px;
+  background: #38393b;
+}
+.testBox textarea {
+  width: calc(100% - 6px);
+  border-style: none;
+  border-radius: 5px;
+}
+.testBox textarea:hover {
+  background: #46484d;
+}
+.testBox button {
+  width: 150px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #3a3b3c;
+  font-size: 16px;
+  color: #fff;
+  outline: none !important;
+}
+.testBox button:hover {
+  background-color: #0666a3;
+}
+.testBox button:active,
+button:focus {
+  outline: none;
+}
+.item {
+  color: #b0b3b8;
+  margin: 10px 0;
+}
+.btnBlock {
+  margin-top: 20px;
+  text-align: center;
+}
+@media (min-width: 568px) {
+  .nameItem,
+  .cityItem {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .nameItem input,
+  .cityItem input {
+    width: calc(50% - 20px);
+  }
+  .cityItem select {
+    width: calc(50% - 8px);
+  }
+}
