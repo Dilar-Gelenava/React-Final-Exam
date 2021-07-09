@@ -8,7 +8,7 @@ function SeedsPage() {
         <button
           onClick={() => {
             Seed();
-            alert('Seeded Succesfully');
+            alert('Seeded Successfully');
           }}
           className="btn btn-secondary btn-lg m-2 btn-outline-light">
           Seed( )
@@ -17,7 +17,7 @@ function SeedsPage() {
         <button
           onClick={() => {
             Reset();
-            alert('Reseted Succesfully');
+            alert('Reseted Successfully');
           }}
           className="btn btn-secondary btn-lg m-2 btn-outline-light">
           Reset( )

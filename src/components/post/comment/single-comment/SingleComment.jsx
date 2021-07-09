@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { memo } from 'memo';
 import { DeleteComment } from '../../../../services/comments/DeleteComment';
 import { TimeDiff } from '../../../../services/date/TimeDiff';
 import { GetUserData } from '../../../../services/users/GetUserData';
@@ -33,4 +34,4 @@ function SingleComment({ comment, changeComments }) {
   );
 }
 
-export default SingleComment;
+export default memo(SingleComment);
