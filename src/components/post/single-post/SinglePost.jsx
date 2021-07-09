@@ -69,6 +69,7 @@ function SinglePost({ post, changePosts }) {
           <img className={MainCSS.postImage} src={post.imageUrl} alt="post" />
         </div>
       )}
+
       {post.videoUrl && (
         <div className={MainCSS.postImageBox}>
           <video className={MainCSS.postImage} width="100%" controls>
@@ -86,6 +87,19 @@ function SinglePost({ post, changePosts }) {
             )}`}
             title={user.userName}
             allowFullScreen></iframe>
+        </div>
+      )}
+
+      {post.facebookUrl && (
+        <div className={MainCSS.facebookBox}>
+          <iframe
+            title="facebook"
+            src={`https://www.facebook.com/plugins/video.php?href=${post.facebookUrl}/&t=0`}
+            style={{ border: 'none', overflow: 'hidden' }}
+            scrolling="no"
+            frameBorder="0"
+            allowFullScreen={true}
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </div>
       )}
 

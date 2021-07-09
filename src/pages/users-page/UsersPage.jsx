@@ -13,14 +13,11 @@ function UsersPage() {
     <div className="d-flex justify-content-around flex-wrap m-4">
       {users &&
         users.map((user) => (
-          <div
-            key={user.id}
-            className="bg-dark rounded p-3 m-1"
-            style={{ width: '250px' }}>
+          <div key={user.id} className="bg-dark rounded p-3 m-1">
             <Link to={`/profile?id=${user.id}`}>
               <img
-                style={{ objectFit: 'cover' }}
-                className="rounded w-100"
+                style={{ objectFit: 'cover', width: '200px', height: '200px' }}
+                className="rounded"
                 src={user.avatar}
                 alt={user.id}
               />

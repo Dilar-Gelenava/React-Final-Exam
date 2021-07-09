@@ -10,6 +10,7 @@ export const AddPost = (data) => {
     imageUrl: data.imageUrl,
     videoUrl: data.videoUrl,
     youtubeUrl: data.youtubeUrl,
+    facebookUrl: data.facebookUrl,
     date: Date.now(),
   };
   if (!posts) {

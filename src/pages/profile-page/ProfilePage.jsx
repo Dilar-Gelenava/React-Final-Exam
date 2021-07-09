@@ -48,6 +48,7 @@ function ProfilePage() {
                   background: `url(${user.cover})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
+                  backgroundPosition: '50% 50%',
                 }}>
                 <div className={MainCSS.imageName}>
                   <img

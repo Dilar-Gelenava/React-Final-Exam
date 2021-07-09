@@ -64,9 +64,20 @@ function PostForm({ changePosts }) {
             'd-none': displayUrl !== 'youtube',
           })}
           style={{ marginBottom: '15px' }}
-          placeholder="Youtube URL"
+          placeholder="Youtube video URL"
           name="youtubeUrl"
           {...register('youtubeUrl')}
+        />
+
+        <input
+          type="url"
+          className={classNames(MainCSS.text, {
+            'd-none': displayUrl !== 'facebook',
+          })}
+          style={{ marginBottom: '15px' }}
+          placeholder="Facebook Video URL"
+          name="facebookUrl"
+          {...register('facebookUrl')}
         />
       </form>
       <div className={MainCSS.optionsBox}>
@@ -84,6 +95,11 @@ function PostForm({ changePosts }) {
           onClick={() => setDisplayUrl('youtube')}
           className={MainCSS.optionsButton}>
           Youtube
+        </button>
+        <button
+          onClick={() => setDisplayUrl('facebook')}
+          className={MainCSS.optionsButton}>
+          Facebook
         </button>
         <button type="submit" form="postForm" className={MainCSS.optionsButton}>
           Post
